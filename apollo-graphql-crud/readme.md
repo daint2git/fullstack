@@ -15,6 +15,19 @@ query {
 }
 ```
 
+- get book by id
+
+```graphql
+query {
+  getBookById(id: 1) {
+    id
+    title
+    author
+    createdAt
+  }
+}
+```
+
 - add book
 
 ```graphql

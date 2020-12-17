@@ -1,14 +1,16 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const rootDir = path.resolve(process.cwd());
+
 module.exports = {
   mode: 'development',
   entry: {
-    app: './app.jsx',
+    app: './src/app.jsx',
   },
   output: {
     publicPath: '/',
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(rootDir, 'build'),
     filename: 'js/[name].js',
     chunkFilename: 'js/[name].chunk.js',
   },
@@ -17,12 +19,17 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
+        include: path.resolve(rootDir, 'src'),
         use: {
           loader: 'babel-loader',
           options: {
             cacheDirectory: true,
           },
         },
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
@@ -42,6 +49,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.json'],
   },
   devServer: {
+    contentBase: '/',
     port: 6969,
     host: 'localhost',
     open: true,

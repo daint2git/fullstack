@@ -21,11 +21,12 @@ module.exports = gql`
 
   type Query {
     books: [Book]
+    getBookById(id: ID!): Book
   }
 
   type Mutation {
-    addBook(input: AddBookInput): Book
+    addBook(input: AddBookInput!): Book
     deleteBook(id: ID!): Boolean
-    updateBook(input: UpdateBookInput): Boolean
+    updateBook(input: UpdateBookInput!): Boolean
   }
 `;

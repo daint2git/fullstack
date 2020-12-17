@@ -1,9 +1,12 @@
-let books = require('../../../../database');
+const books = require('../../../../database');
 
 module.exports = {
   Query: {
     books() {
       return books;
+    },
+    getBookById(parent, args, context, info) {
+      return books.find(book => book.id === parseInt(args.id, 10));
     },
   },
   Mutation: {
