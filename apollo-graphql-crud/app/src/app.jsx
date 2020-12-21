@@ -148,7 +148,7 @@ function UpdateBookModal({ book, onClose }) {
   });
 
   return (
-    <div id="myModal" className="modal">
+    <div className="modal">
       <div className="modal-content" ref={modalRef}>
         <span className="close" onClick={onClose}>
           &times;

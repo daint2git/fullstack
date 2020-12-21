@@ -26,7 +26,7 @@ module.exports = gql`
 
   type Mutation {
     addBook(input: AddBookInput!): Book
-    deleteBook(id: ID!): Boolean
     updateBook(input: UpdateBookInput!): Boolean
+    deleteBook(id: ID!): Boolean
   }
 `;
