@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  app:
+    container_name: my_app
+    build:
+      context: ./app
+      dockerfile: ./Dockerfile
+    ports:
+      - 80:80
+    environment:
+      - APP_URL=${APP_URL}
+    networks:
+      - my_network
+  # api:
+  #   container_name: my_api
+  #   build:
+  #     context: ./api
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 1234:4000
+  #   networks:
+  #     - my_network
+
+networks:
+  my_network:
+    driver: bridge
